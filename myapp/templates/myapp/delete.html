@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>학생 정보 관리 시스템</title>
+        <link rel="stylesheet" href="/static/css/myapp.css" />
+    </head>
+    <body>
+        <header class="header">학생 정보 관리 시스템</header>
+        <main class="main-container">
+            <div class="create-container">
+                <h2>
+                    {{student.firstname}} {{student.secondname}}을
+                    삭제하시겠습니까?
+                </h2>
+                <form class="form-box" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="submit-btn">삭제하기</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

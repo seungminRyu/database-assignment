@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>학생 정보 관리 시스템</title>
+        <link rel="stylesheet" href="/static/css/myapp.css" />
+    </head>
+    <body>
+        <header class="header">학생 정보 관리 시스템</header>
+        <main class="main-container">
+            <div class="search-bar">
+                <form action="search" method="get">
+                    <input
+                        class="search-input"
+                        name="q"
+                        placeholder="이름으로 검색"
+                    />
+                    <button class="search-btn" type="submit">검색</button>
+                </form>
+                <a href="/create">
+                    <button class="insert-btn" type="button">추가하기</button>
+                </a>
+            </div>
+            <table class="data-table">
+                <tr class="table-grid">
+                    <td>ID</td>
+                    <td>First name</td>
+                    <td>Second name</td>
+                    <td>Age</td>
+                    <td>Major</td>
+                    <td>Address</td>
+                    <td></td>
+                </tr>
+                {% for student in students %}
+                <tr class="table-grid">
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.firstname }}</td>
+                    <td>{{ student.secondname }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.major }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>
+                        <a href="{% url 'update' pk=student.id %}">
+                            <button class="edit-btn" type="button">수정</button>
+                        </a>
+                        <a href="{% url 'delete' pk=student.id %}">
+                            <button class="delete-btn" type="button">
+                                삭제
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </main>
+    </body>
+</html>

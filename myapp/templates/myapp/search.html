@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>학생 정보 관리 시스템</title>
+        <link rel="stylesheet" href="/static/css/myapp.css" />
+    </head>
+    <body>
+        <header class="header">학생 정보 관리 시스템</header>
+        <main class="main-container">
+            <h2>검색 결과</h2>
+            <table class="data-table">
+                <tr class="table-grid">
+                    <td>ID</td>
+                    <td>First name</td>
+                    <td>Second name</td>
+                    <td>Age</td>
+                    <td>Major</td>
+                    <td>Address</td>
+                    <td></td>
+                </tr>
+                {% if resultExist %} {% for result in results %}
+                <tr class="table-grid">
+                    <td>{{ result.id }}</td>
+                    <td>{{ result.firstname }}</td>
+                    <td>{{ result.secondname }}</td>
+                    <td>{{ result.age }}</td>
+                    <td>{{ result.major }}</td>
+                    <td>{{ result.address }}</td>
+                </tr>
+                {% endfor %} {% else %}
+                <p class="no-result">결과가 존재하지 않습니다.</p>
+                {% endif %}
+            </table>
+        </main>
+    </body>
+</html>
