@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'category.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'categorydb',
-        'USER': 'root',
+        'NAME': 'db-homework',
+        'USER': 'fbtmdals011',
         'PASSWORD': 'gu2216sh470',
-        'HOST': 'localhost',
+        'HOST': 'db-homework.czukk0ik4vos.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
