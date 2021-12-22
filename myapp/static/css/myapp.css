@@ -64,8 +64,24 @@ a {
 
 .table-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
     width: 100%;
+}
+
+.table-grid.students,
+.table-grid.professors {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.table-grid.counties {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.table-grid.covids {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.table-grid.query {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .table-grid:first-child {
@@ -101,3 +117,4 @@ a {
     padding: 8px 12px;
     margin: 40px auto 0;
 }
+

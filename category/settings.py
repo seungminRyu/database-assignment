@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@s#&cn5l4c**31oy=t-vpe$nd^pq#$81=k%q7@g-*1j=^s4=@w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.144.238.7']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'category.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db-homework',
+        'NAME': 'assginment2',
         'USER': 'fbtmdals011',
         'PASSWORD': 'gu2216sh470',
         'HOST': 'db-homework.czukk0ik4vos.us-east-2.rds.amazonaws.com',

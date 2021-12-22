@@ -19,9 +19,4 @@ from myapp import views
 
 urlpatterns = [
     path('', views.home, name='index'),
-    path('create/', views.create, name='create'),
-    path('post/', views.check_post, name='post'),
-    path('update/<int:pk>', views.Student_update.as_view(), name='update'),
-    path('delete/<int:pk>', views.Student_delete.as_view(), name='delete'),
-    path('search', views.search, name='search'),
 ]

@@ -1,55 +1,122 @@
 {% load static %}
 <!DOCTYPE html>
+<script>
+    const message = "{{ message }}";
+
+    if (message != "") {
+        alert(message);
+        window.location.href = "/";
+    }
+</script>
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
-        <title>학생 정보 관리 시스템</title>
+        <title>Assignment 2</title>
         <link rel="stylesheet" href="/static/css/myapp.css" />
     </head>
     <body>
-        <header class="header">학생 정보 관리 시스템</header>
+        <header class="header">Assignment 2</header>
         <main class="main-container">
-            <div class="search-bar">
-                <form action="search" method="get">
-                    <input
-                        class="search-input"
-                        name="q"
-                        placeholder="이름으로 검색"
-                    />
-                    <button class="search-btn" type="submit">검색</button>
-                </form>
-                <a href="/create">
-                    <button class="insert-btn" type="button">추가하기</button>
+            <h2>
+                Students table
+                <a href="/?target=students">
+                    <button class="delete-btn" type="button">
+                        + Add students records from csv
+                    </button>
                 </a>
-            </div>
+            </h2>
             <table class="data-table">
-                <tr class="table-grid">
-                    <td>ID</td>
-                    <td>First name</td>
-                    <td>Second name</td>
-                    <td>Age</td>
-                    <td>Major</td>
-                    <td>Address</td>
-                    <td></td>
+                <tr class="table-grid students">
+                    <td>student ID</td>
+                    <td>name</td>
+                    <td>score</td>
+                    <td>county</td>
                 </tr>
                 {% for student in students %}
-                <tr class="table-grid">
-                    <td>{{ student.id }}</td>
-                    <td>{{ student.firstname }}</td>
-                    <td>{{ student.secondname }}</td>
-                    <td>{{ student.age }}</td>
-                    <td>{{ student.major }}</td>
-                    <td>{{ student.address }}</td>
-                    <td>
-                        <a href="{% url 'update' pk=student.id %}">
-                            <button class="edit-btn" type="button">수정</button>
-                        </a>
-                        <a href="{% url 'delete' pk=student.id %}">
-                            <button class="delete-btn" type="button">
-                                삭제
-                            </button>
-                        </a>
-                    </td>
+                <tr class="table-grid students">
+                    <td>{{ student.studentID }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.score }}</td>
+                    <td>{{ student.county }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h2>
+                Professors table
+                <a href="/?target=professors">
+                    <button class="delete-btn" type="button">
+                        + Add professors records from csv
+                    </button>
+                </a>
+            </h2>
+            <table class="data-table">
+                <tr class="table-grid professors">
+                    <td>faculty ID</td>
+                    <td>name</td>
+                    <td>age</td>
+                    <td>county</td>
+                </tr>
+                {% for professor in professors %}
+                <tr class="table-grid professors">
+                    <td>{{ professor.facultyID }}</td>
+                    <td>{{ professor.name }}</td>
+                    <td>{{ professor.age }}</td>
+                    <td>{{ professor.county }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h2>
+                Counties table
+                <a href="/?target=counties">
+                    <button class="delete-btn" type="button">
+                        + Add counties records from csv
+                    </button>
+                </a>
+            </h2>
+            <table class="data-table">
+                <tr class="table-grid counties">
+                    <td>county name</td>
+                    <td>population</td>
+                    <td>city</td>
+                </tr>
+                {% for county in counties %}
+                <tr class="table-grid counties">
+                    <td>{{ county.countyName }}</td>
+                    <td>{{ county.population }}</td>
+                    <td>{{ county.city }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h2>
+                COVID table
+                <a href="/?target=covid">
+                    <button class="delete-btn" type="button">
+                        + Add covid records from csv
+                    </button>
+                </a>
+            </h2>
+            <table class="data-table">
+                <tr class="table-grid covids">
+                    <td>patient ID</td>
+                    <td>city</td>
+                </tr>
+                {% for covid in covids %}
+                <tr class="table-grid covids">
+                    <td>{{ covid.patientID }}</td>
+                    <td>{{ covid.city }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <h2>Query 1</h2>
+            <table class="data-table">
+                <tr class="table-grid query">
+                    <td>county</td>
+                    <td>average score</td>
+                </tr>
+                {% for query in query1 %}
+                <tr class="table-grid query">
+                    <td>{{ query.county }}</td>
+                    <td>{{ query.avgScore }}</td>
                 </tr>
                 {% endfor %}
             </table>
